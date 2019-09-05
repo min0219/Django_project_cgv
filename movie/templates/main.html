@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Regions</li>
+{% endblock %}
+
+{% block content %}
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Regions</th>
+        <th>Theaters</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for region in regions %}
+        <tr>
+          <td>
+            <a href="{% url 'region_theaters' region.pk %}">{{ region.region_name }}</a>
+          </td>
+          <td class="align-middle">0</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

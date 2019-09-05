@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Movies{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'main' %}">Regions</a></li>
+  <li class="breadcrumb-item active">{{ theater.theater_name }}</li>
+{% endblock %}
+
+{% block content %}
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Posters</th>
+        <th>Movies</th>
+        <th>Times</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for movie in movies %}
+        <tr>
+          <td>
+            <img src = "{{movie.image.url}}">
+          </td>
+          <td>
+            <a>{{ movie.movie_name }}</a>
+          </td>
+          <td>0</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

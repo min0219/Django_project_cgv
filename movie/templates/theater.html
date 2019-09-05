@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ region.region_name }} - {{ block.super }}
+{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'main' %}">Regions</a></li>
+  <li class="breadcrumb-item active">{{ region.region_name }}</li>
+{% endblock %}
+
+{% block content %}
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Theaters</th>
+        <th>Movies</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for theater in theaters %}
+        <tr>
+          <td>
+            <a href="{% url 'theater_movies' theater.pk %}">{{ theater.theater_name }}</a>
+          </td>
+          <td>0</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
